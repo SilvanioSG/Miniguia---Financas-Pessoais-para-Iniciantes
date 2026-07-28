@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Miniguia de Estudo – Finanças Pessoais</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f6f9fc;
+            color: #1e293b;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 2rem;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 20px 60px rgba(0, 20, 30, 0.08);
+        }
+        .header {
+            border-bottom: 3px solid #e9f0f5;
+            padding-bottom: 2rem;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+        .badge-notebook {
+            display: inline-block;
+            background: #1a73e8;
+            color: #fff;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            padding: 0.25rem 1rem;
+            border-radius: 20px;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+        .header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #0b2b3d;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            margin-bottom: 0.3rem;
+        }
+        .header .subtitle {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #3b5a70;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem 1rem;
+        }
+        .header .subtitle .pdf-btn {
+            background: #eef4ff;
+            padding: 0.3rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #1a4c7a;
+            border: 1px solid #cbddee;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+        .header .subtitle .pdf-btn:hover {
+            background: #dce9f8;
+            border-color: #1a73e8;
+            transform: scale(1.02);
+        }
+        .meta-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem 3rem;
+            margin-top: 1.2rem;
+            padding-top: 1.2rem;
+            border-top: 1px dashed #dce6ed;
+            font-size: 0.95rem;
+            color: #2c4a62;
+        }
+        .meta-info span strong {
+            font-weight: 600;
+            color: #0b2b3d;
+        }
+        .meta-info a {
+            color: #1a73e8;
+            text-decoration: none;
+        }
+        .meta-info a:hover {
+            text-decoration: underline;
+        }
+        .context-box {
+            background: #f0f6fd;
+            border-radius: 1.2rem;
+            padding: 1.8rem 2rem;
+            margin-bottom: 2.5rem;
+            border-left: 6px solid #1a73e8;
+        }
+        .context-box h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #0b2b3d;
+        }
+        .context-box p {
+            margin-bottom: 0.5rem;
+            color: #1e3a4f;
+        }
+        .context-box .highlight {
+            font-weight: 500;
+            color: #0f4b7a;
+        }
+        .fontes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.2rem;
+            margin: 1.5rem 0 2.5rem 0;
+        }
+        .fonte-card {
+            background: #f8faff;
+            border: 1px solid #e2edf5;
+            border-radius: 1rem;
+            padding: 1.2rem 1.5rem;
+            transition: 0.2s ease;
+        }
+        .fonte-card:hover {
+            border-color: #b0cde0;
+            background: #f4faff;
+        }
+        .fonte-card .fonte-num {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #1a73e8;
+            background: #e0edff;
+            display: inline-block;
+            padding: 0.1rem 0.7rem;
+            border-radius: 20px;
+            margin-bottom: 0.4rem;
+        }
+        .fonte-card h4 {
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+            color: #0b2b3d;
+        }
+        .fonte-card p {
+            font-size: 0.9rem;
+            color: #2e4b61;
+            margin-bottom: 0.4rem;
+        }
+        .fonte-card a {
+            font-size: 0.85rem;
+            color: #1a5f9e;
+            word-break: break-all;
+        }
+        .section {
+            margin-bottom: 3rem;
+        }
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #0b2b3d;
+            border-bottom: 3px solid #dde9f2;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .section-title .emoji {
+            font-size: 1.8rem;
+        }
+        .card {
+            background: #ffffff;
+            border: 1px solid #e8f0f6;
+            border-radius: 1.2rem;
+            padding: 1.5rem 1.8rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+            transition: 0.15s;
+        }
+        .card:hover {
+            border-color: #c8dcec;
+        }
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #103a55;
+            margin-bottom: 0.75rem;
+        }
+        .card h4 {
+            font-weight: 600;
+            color: #1f4b68;
+            margin-top: 1.2rem;
+            margin-bottom: 0.3rem;
+        }
+        .card ul,
+        .card ol {
+            padding-left: 1.5rem;
+            margin: 0.5rem 0 0.75rem 0;
+        }
+        .card li {
+            margin-bottom: 0.25rem;
+        }
+        .table-wrap {
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+        table th {
+            background: #e9f1f9;
+            font-weight: 600;
+            text-align: left;
+            padding: 0.6rem 0.8rem;
+            border: 1px solid #d0dfeb;
+        }
+        table td {
+            padding: 0.6rem 0.8rem;
+            border: 1px solid #dce7f0;
+            vertical-align: top;
+        }
+        table tr:nth-child(even) td {
+            background: #f8fbfe;
+        }
+        .glossario table td:first-child {
+            font-weight: 600;
+            color: #0a3955;
+        }
+        .prompt-item {
+            background: #f2f8ff;
+            border-radius: 0.8rem;
+            padding: 1rem 1.2rem;
+            margin-bottom: 0.8rem;
+        }
+        .prompt-item code {
+            display: block;
+            background: #e3eef9;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-family: 'Inter', monospace;
+            font-size: 0.9rem;
+            color: #003153;
+            margin-bottom: 0.3rem;
+            border-left: 4px solid #1a73e8;
+        }
+        .prompt-item .uso {
+            font-size: 0.9rem;
+            color: #2d5a7a;
+        }
+        .cicatriz-item {
+            background: #faf6f0;
+            border-left: 5px solid #d97706;
+            padding: 1rem 1.3rem;
+            border-radius: 0.8rem;
+            margin-bottom: 0.8rem;
+        }
+        .cicatriz-item strong {
+            color: #8b4b00;
+        }
+        .footer {
+            margin-top: 3.5rem;
+            padding-top: 2rem;
+            border-top: 2px solid #e4edf5;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #3b617c;
+        }
+        .footer .pdf-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: #1a73e8;
+            color: #fff;
+            padding: 0.5rem 1.5rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+        .footer .pdf-link:hover {
+            background: #0f5bb5;
+            transform: scale(1.02);
+        }
+        .footer a {
+            color: #1a5f9e;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 700px) {
+            .container {
+                padding: 1.5rem 1rem;
+            }
+            .header h1 {
+                font-size: 2rem;
+            }
+            .section-title {
+                font-size: 1.4rem;
+            }
+            .card {
+                padding: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- ===== Cabeçalho ===== -->
+        <header class="header">
+            <div class="badge-notebook">📓 NotebookLM · Estudo Ativo</div>
+            <h1>O Painel do Bem-Estar Financeiro</h1>
+            <div class="subtitle">
+                <span>Guia visual para transformar sua relação com o dinheiro</span>
+                <!-- Botão/link para baixar o PDF -->
+                <a href="Miniguia%20-%20Finan%C3%A7as%20Pessoais%20para%20Iniciantes.pdf" target="_blank" class="pdf-btn">
+                    📄 Baixar PDF do Miniguia
+                </a>
+            </div>
+            <div class="meta-info">
+                <span><strong>📚 Tema:</strong> Finanças Pessoais para Iniciantes</span>
+                <span><strong>📅 Criado em:</strong> Julho 2026</span>
+                <span><strong>🔗 Origem:</strong> Caderno temático no NotebookLM</span>
+                <span><strong>📎 Fontes:</strong> 3 documentos oficiais</span>
+            </div>
+        </header>
+
+        <!-- ===== Contexto do Desafio ===== -->
+        <div class="context-box">
+            <h2>🧩 Contexto do Desafio – DIO</h2>
+            <p>
+                Este miniguia foi desenvolvido como parte do projeto prático da
+                <span class="highlight">Digital Innovation One (DIO)</span>, que propõe a criação de um
+                <strong>caderno temático no NotebookLM</strong> a partir de fontes abertas sobre um assunto
+                financeiro introdutório.
+            </p>
+            <p>
+                O objetivo é exercitar o <strong>pensamento crítico</strong>, a <strong>curadoria de fontes</strong>
+                e a <strong>engenharia de prompts</strong>, documentando o processo de aprendizagem ativa com IA.
+                O resultado é este guia completo, que reúne resumos estruturados, glossário e prompts reutilizáveis.
+            </p>
+            <p style="margin-top:0.5rem; font-size:0.95rem; color:#1f4a69;">
+                ⚙️ <strong>Ferramenta utilizada:</strong> NotebookLM do Google (RAG com fontes anexadas)
+            </p>
+        </div>
+
+        <!-- ===== Fontes ===== -->
+        <div class="section">
+            <h2 class="section-title"><span class="emoji">📚</span> Curadoria de Fontes</h2>
+            <p style="margin-bottom:1rem; color:#1e3f57;">
+                Três documentos oficiais foram carregados no NotebookLM para embasar todo o conteúdo:
+            </p>
+            <div class="fontes-grid">
+                <div class="fonte-card">
+                    <div class="fonte-num">Fonte 1</div>
+                    <h4>Caderno de Educação Financeira – BCB</h4>
+                    <p>Banco Central do Brasil · 98 páginas</p>
+                    <a href="https://www.bcb.gov.br/content/cidadaniafinanceira/documentos_cidadania/Cuidando_do_seu_dinheiro_Gestao_de_Financas_Pessoais/caderno_cidadania_financeira.pdf" target="_blank">🔗 Acessar PDF</a>
+                </div>
+                <div class="fonte-card">
+                    <div class="fonte-num">Fonte 2</div>
+                    <h4>Apostila Básico em Finanças Pessoais</h4>
+                    <p>UTFPR · 3 módulos</p>
+                    <a href="https://educapes.capes.gov.br/bitstream/capes/430564/2/Apostila%20B%C3%A1sico%20em%20Finan%C3%A7as%20Pessoais.pdf" target="_blank">🔗 Acessar PDF</a>
+                </div>
+                <div class="fonte-card">
+                    <div class="fonte-num">Fonte 3</div>
+                    <h4>Cartilha “Como Cuidar de Suas Finanças” – CFA</h4>
+                    <p>CFA Brasil · Introdução ao equilíbrio financeiro</p>
+                    <a href="https://www.academia.edu/36213029/COMO_CUIDAR_DE_SUAS_FINAN%C3%87AS_PESSOAIS" target="_blank">🔗 Acessar PDF</a>
+                </div>
+            </div>
+            <p style="font-size:0.9rem; color:#345b75; background:#eef5fa; padding:0.5rem 1rem; border-radius:30px; display:inline-block;">
+                📌 O PDF “O Painel do Bem-Estar Financeiro” foi gerado pelo NotebookLM a partir destas fontes.
+            </p>
+        </div>
+
+        <!-- ===== Perguntas Estratégicas ===== -->
+        <div class="section">
+            <h2 class="section-title"><span class="emoji">❓</span> Perguntas Estratégicas</h2>
+            <div class="card">
+                <p><strong>5 perguntas que um iniciante deve fazer para construir uma base sólida:</strong></p>
+                <ol style="margin-top:0.8rem; font-weight:500;">
+                    <li><strong>O que é bem-estar financeiro e como posso alcançá-lo?</strong></li>
+                    <li><strong>Como diferenciar necessidades de desejos para evitar o desequilíbrio financeiro?</strong></li>
+                    <li><strong>O que é a “Troca Intertemporal” e como ela impacta minhas decisões?</strong></li>
+                    <li><strong>Como funciona a regra “Pague-se Primeiro” e o ciclo do orçamento?</strong></li>
+                    <li><strong>Por que o Custo Efetivo Total (CET) é tão importante ao contratar crédito?</strong></li>
+                </ol>
+                <p style="margin-top:0.8rem; font-size:0.95rem; color:#1f4b69;">
+                    Cada pergunta foi testada com variações de prompt para extrair a melhor resposta das fontes.
+                </p>
+            </div>
+        </div>
+
+        <!-- ===== Testes de Prompts ===== -->
+        <div class="section">
+            <h2 class="section-title"><span class="emoji">🧪</span> Testes de Prompts &amp; Cicatrizes</h2>
+            <p style="margin-bottom:1.2rem; color:#1e3f57;">
+                Para cada pergunta estratégica, testamos duas variações de prompt e documentamos os desafios.
+            </p>
+
+            <!-- Prompt 1 -->
+            <div class="card">
+                <h3>1. Bem-estar financeiro</h3>
+                <p><strong>Variação A (genérica):</strong> <em>“Explique o que é bem-estar financeiro.”</em></p>
+                <p><strong>Resposta:</strong> Muito curta, sem profundidade.</p>
+                <p><strong>Dificuldade:</strong> Prompt vago gerou resposta rasa.</p>
+                <p><strong>Variação B (específica):</strong> <em>“Com base no documento, explique detalhadamente o conceito e descreva um passo a passo prático para alcançá-lo.”</em></p>
+                <p><strong>Resposta:</strong> Definição completa + caminho prático (razão/emoção → orçamento superavitário → juros a favor).</p>
+                <p><strong>Solução:</strong> Exigir estrutura e exemplos.</p>
+            </div>
+
+            <!-- Prompt 2 -->
+            <div class="card">
+                <h3>2. Necessidades vs. Desejos</h3>
+                <p><strong>Variação A:</strong> <em>“Qual a diferença entre necessidades e desejos?”</em></p>
+                <p><strong>Resposta:</strong> Genérica, sem conexão com o material.</p>
+                <p><strong>Dificuldade:</strong> IA usou conhecimento externo, não as fontes.</p>
+                <p><strong>Variação B:</strong> <em>“Com base no Painel do Bem-Estar Financeiro, explique o problema de tratar desejos como necessidades. Use o conceito de ‘Ponto de Equilíbrio’ e dê 3 exemplos práticos.”</em></p>
+                <p><strong>Resposta:</strong> Ancorada na página 3, com exemplos concretos (smartphone, comer fora, roupas).</p>
+                <p><strong>Solução:</strong> Forçar citação das fontes e pedir exemplos.</p>
+            </div>
+
+            <!-- Prompt 3 -->
+            <div class="card">
+                <h3>3. Troca Intertemporal</h3>
+                <p><strong>Variação A:</strong> <em>“Explique a Troca Intertemporal.”</em></p>
+                <p><strong>Resposta:</strong> Definição técnica, sem aplicação prática.</p>
+                <p><strong>Dificuldade:</strong> Muito teórico.</p>
+                <p><strong>Variação B:</strong> <em>“Explique com base na página 5, compare ‘comprar com crédito’ vs. ‘poupar para o futuro’ em uma tabela, incluindo o Custo de Oportunidade.”</em></p>
+                <p><strong>Resposta:</strong> Tabela comparativa clara, com impacto dos juros e custo de oportunidade.</p>
+                <p><strong>Solução:</strong> Pedir formato tabela e incluir custo de oportunidade explicitamente.</p>
+            </div>
+
+            <!-- Prompt 4 -->
+            <div class="card">
+                <h3>4. Pague-se Primeiro</h3>
+                <p><strong>Variação A:</strong> <em>“O que significa ‘Pague-se Primeiro’?”</em></p>
+                <p><strong>Resposta:</strong> Resposta curta: “priorizar a poupança”.</p>
+                <p><strong>Dificuldade:</strong> Não explicou a fórmula nem o ciclo.</p>
+                <p><strong>Variação B:</strong> <em>“Detalhe a Hierarquia do Orçamento e o Ciclo da Gestão Orçamentária com a fórmula e exemplos.”</em></p>
+                <p><strong>Resposta:</strong> Fórmula (Receitas – Despesas = Poupança) + ciclo (Planejar, Registrar, Classificar, Analisar, Agir) com exemplo prático.</p>
+                <p><strong>Solução:</strong> Complementar com fontes originais para detalhar o ciclo.</p>
+            </div>
+
+            <!-- Prompt 5 -->
+            <div class="card">
+                <h3>5. Custo Efetivo Total (CET)</h3>
+                <p><strong>Variação A:</strong> <em>“O que é CET?”</em></p>
+                <p><strong>Resposta:</strong> “Custo Efetivo Total é o custo total do crédito.” – incompleto.</p>
+                <p><strong>Dificuldade:</strong> Sem alerta sobre crédito fácil.</p>
+                <p><strong>Variação B:</strong> <em>“Com base na página 9, explique o CET usando o exemplo do financiamento de R$ 1.000 e mostre por que ofertas pré-aprovadas são perigosas.”</em></p>
+                <p><strong>Resposta:</strong> Cálculo completo: taxa anunciada 12% vira 43,93% efetiva, com alerta sobre superendividamento.</p>
+                <p><strong>Solução:</strong> Incluir o alerta explicitamente no prompt.</p>
+            </div>
+
+            <!-- Cicatrizes -->
+            <div class="card" style="background:#faf6f0; border-left:6px solid #d97706;">
+                <h3>⚠️ Principais “Cicatrizes” – Aprendizados com os erros</h3>
+                <ul>
+                    <li><strong>Respostas vagas:</strong> prompts genéricos geram respostas genéricas. <em>Solução:</em> usar prompts estruturados com escopo definido.</li>
+                    <li><strong>IA “alucinava” com conhecimento externo:</strong> não usava as fontes. <em>Solução:</em> exigir citação explícita das fontes.</li>
+                    <li><strong>Conceitos abstratos ficavam técnicos demais:</strong> <em>Solução:</em> pedir “linguagem simples” e “exemplos do dia a dia”.</li>
+                    <li><strong>IA pulava informações importantes (ex: Custo de Oportunidade):</strong> <em>Solução:</em> mencionar esses elementos no prompt.</li>
+                    <li><strong>Material visual (gráficos, matrizes) difícil de extrair:</strong> <em>Solução:</em> descrever a estrutura visual no prompt e pedir explicação textual.</li>
+                </ul>
+                <p style="margin-top:0.5rem; font-weight:500;">💡 Lição de ouro: <em>“Conheça o material antes de perguntar – a IA não substitui o pensamento crítico.”</em></p>
+            </div>
+        </div>
+
+        <!-- ===== Miniguia de Estudo ===== -->
+        <div class="section">
+            <h2 class="section-title"><span class="emoji">📖</span> Miniguia de Estudo</h2>
+
+            <!-- Resumos -->
+            <div class="card">
+                <h3>📌 A. Resumos Estruturados</h3>
+
+                <h4>1. Introdução à Cidadania Financeira</h4>
+                <p><strong>Bem-estar financeiro:</strong> estado em que o indivíduo consegue pagar contas, ter reserva, guardar para projetos e sentir-se seguro. (Fonte: p.2)</p>
+                <p><strong>Engrenagem:</strong> Escolhas conscientes → Orçamento superavitário → Juros a favor.</p>
+
+                <h4>2. Necessidades vs. Desejos</h4>
+                <p>Necessidades são indispensáveis; desejos são ilimitados. O erro é tratar desejos como necessidades, gerando desequilíbrio. (Fonte: p.3)</p>
+                <p><strong>Exemplo:</strong> celular funcional (necessidade) vs. celular topo de linha (desejo).</p>
+
+                <h4>3. Troca Intertemporal e Custo de Oportunidade</h4>
+                <p>Escolha entre consumir hoje ou amanhã. Comprar com crédito = posição devedora (paga juros); poupar = posição credora (recebe juros). Custo de oportunidade é o valor das oportunidades perdidas. (Fonte: p.5)</p>
+
+                <h4>4. Juros Compostos – o poder do tempo</h4>
+                <p>Helena investiu 3x menos que Marta, mas começou 10 anos antes e alcançou o mesmo resultado. Começar cedo é mais importante que o valor. (Fonte: p.8)</p>
+
+                <h4>5. Orçamento: Pague-se Primeiro</h4>
+                <p>Fórmula: Receitas – Despesas = Poupança. Separe a poupança antes de pagar contas. Meta: Despesas &lt; Receitas. (Fonte: p.6)</p>
+                <p><strong>Ciclo da gestão:</strong> Planejar → Registrar → Classificar → Analisar → Agir. (Fonte: p.7)</p>
+
+                <h4>6. Custo Efetivo Total (CET) e o perigo do crédito</h4>
+                <p>Exemplo: financiamento de R$ 1.000 com taxa anunciada de 12% ao ano pode ter CET de 43,93% ao ano devido a tarifas. Ofertas pré-aprovadas costumam ter as maiores taxas. (Fonte: p.9)</p>
+                <p><strong>Cenário carro:</strong> financiar R$ 40.000 custa R$ 52.000 no total; à vista sobra patrimônio. (Fonte: p.10)</p>
+
+                <h4>7. Escada de fuga do endividamento</h4>
+                <ol>
+                    <li>Reconheça a dívida</li>
+                    <li>Pare de contrair novas</li>
+                    <li>Negocie com credores</li>
+                    <li>Priorize as dívidas mais caras</li>
+                    <li>Crie um plano de pagamento</li>
+                    <li>Mantenha o orçamento</li>
+                </ol>
+
+                <h4>8. Pacto financeiro familiar</h4>
+                <p>Impor limites gera atrito; construir limites juntos gera harmonia. Envolva a família na definição de sonhos comuns. (Fonte: p.14)</p>
+            </div>
+
+            <!-- Glossário -->
+            <div class="card glossario">
+                <h3>📖 B. Glossário de Conceitos</h3>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr><th>Termo</th><th>Definição</th><th>Fonte</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Bem-Estar Financeiro</td><td>Estado de pagar contas, ter reserva e sentir-se seguro.</td><td>p.2</td></tr>
+                            <tr><td>Cidadania Financeira</td><td>Capacidade de fazer escolhas conscientes, com orçamento superavitário e juros a favor.</td><td>p.11</td></tr>
+                            <tr><td>Custo de Oportunidade</td><td>Preço de perder a possibilidade de aproveitar outra oportunidade com o dinheiro.</td><td>p.5</td></tr>
+                            <tr><td>Custo Efetivo Total (CET)</td><td>Custo real do crédito, incluindo juros, tarifas e seguros.</td><td>p.9</td></tr>
+                            <tr><td>Desejo</td><td>Item não essencial, geralmente ligado ao prazer.</td><td>p.3</td></tr>
+                            <tr><td>Endividamento</td><td>Dívidas que superam a capacidade de pagamento.</td><td>p.13</td></tr>
+                            <tr><td>Juros Compostos</td><td>Juros sobre juros; “bola de neve” positiva para investimentos.</td><td>p.8</td></tr>
+                            <tr><td>Necessidade</td><td>Item indispensável para sobrevivência e bem-estar básico.</td><td>p.3</td></tr>
+                            <tr><td>Orçamento</td><td>Planejamento de receitas e despesas.</td><td>p.6-7</td></tr>
+                            <tr><td>Orçamento Superavitário</td><td>Despesas &lt; Receitas.</td><td>p.6</td></tr>
+                            <tr><td>Pague-se Primeiro</td><td>Priorizar a poupança antes de pagar outras contas.</td><td>p.6</td></tr>
+                            <tr><td>Posição Credora</td><td>Ter mais ativos que dívidas; recebe juros.</td><td>p.5</td></tr>
+                            <tr><td>Posição Devedora</td><td>Ter mais dívidas que ativos; paga juros.</td><td>p.5</td></tr>
+                            <tr><td>Troca Intertemporal</td><td>Escolha entre consumir hoje ou consumir amanhã.</td><td>p.5</td></tr>
+                            <tr><td>Superendividamento</td><td>Endividamento extremo que compromete a subsistência.</td><td>p.9</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Prompts Reutilizáveis -->
+            <div class="card">
+                <h3>🔄 C. Prompts Reutilizáveis</h3>
+                <p style="margin-bottom:1rem;">Salve estes prompts para futuras revisões – eles funcionam com qualquer caderno do NotebookLM:</p>
+
+                <div class="prompt-item">
+                    <code>“Com base no material, explique [conceito] de forma simples e dê 2 exemplos práticos.”</code>
+                    <div class="uso">📌 Uso: definir e exemplificar qualquer conceito.</div>
+                </div>
+                <div class="prompt-item">
+                    <code>“Crie um resumo estruturado sobre [tema] seguindo: defina, dê exemplos e mostre o impacto prático.”</code>
+                    <div class="uso">📌 Uso: gerar resumos organizados.</div>
+                </div>
+                <div class="prompt-item">
+                    <code>“Extraia um glossário com todos os conceitos financeiros presentes, em ordem alfabética, com definições de até 2 linhas.”</code>
+                    <div class="uso">📌 Uso: construir glossários rapidamente.</div>
+                </div>
+                <div class="prompt-item">
+                    <code>“Compare [conceito A] e [conceito B] em uma tabela, mostrando diferenças e impactos.”</code>
+                    <div class="uso">📌 Uso: comparar conceitos (ex: renda fixa vs. variável).</div>
+                </div>
+                <div class="prompt-item">
+                    <code>“Elabore 5 perguntas de autoavaliação sobre [tema] com respostas baseadas no documento.”</code>
+                    <div class="uso">📌 Uso: testar seu próprio aprendizado.</div>
+                </div>
+                <div class="prompt-item">
+                    <code>“Explique [conceito] como se eu tivesse 12 anos e nunca tivesse ouvido falar de finanças.”</code>
+                    <div class="uso">📌 Uso: simplificar conceitos complexos.</div>
+                </div>
+                <div class="prompt-item">
+                    <code>“Com base no material, crie um plano de ação prático para [situação financeira].”</code>
+                    <div class="uso">📌 Uso: orientação prática para situações reais.</div>
+                </div>
+                <div class="prompt-item">
+                    <code>“Faça uma análise crítica: quais são os principais alertas do material sobre [tema] e como evitá-los?”</code>
+                    <div class="uso">📌 Uso: identificar e prevenir armadilhas financeiras.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== Rodapé ===== -->
+        <footer class="footer">
+            <p style="margin-bottom:0.8rem;">
+                📘 Este miniguia foi desenvolvido como projeto de estudo com o <strong>NotebookLM</strong>.
+                Todo o conteúdo é baseado exclusivamente nas fontes oficiais listadas.
+            </p>
+            <!-- Botão para baixar o PDF no rodapé (substitui o link antigo do NotebookLM) -->
+            <a href="Miniguia%20-%20Finan%C3%A7as%20Pessoais%20para%20Iniciantes.pdf" target="_blank" class="pdf-link">
+                📥 Baixar PDF do Miniguia
+            </a>
+            <p style="margin-top:0.8rem; font-size:0.8rem; color:#4d6f8a;">
+                Conteúdo organizado para fins educacionais · Julho 2026
+            </p>
+        </footer>
+
+    </div>
+    <!-- fim container -->
+
+</body>
+</html>
